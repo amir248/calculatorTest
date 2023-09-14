@@ -58,7 +58,7 @@
         width:100%;
         max-width:70px;
         min-width:70px;
-        height:50px;
+        /* height:50px; */
         text-align:center;
         display:flex;
         justify-content:center;
@@ -102,9 +102,10 @@
             <p class='click'>0</p>
           </div>
           <div class="operations">
-
             <p class='arifBox'>+</p>
             <p class='arifBox'>-</p>
+            <p class='arifBox'>*</p>
+            <p class='arifBox'>/</p>
             <p class='arifBox'>=</p>
           </div>
 
@@ -184,10 +185,31 @@ const state={};//O_o
       minus();
       document.querySelector('.display').innerHTML+='-';
   });
-
+  // myltiplication *
+      document.querySelector('p.arifBox:nth-child(3)').addEventListener('click',()=>{
+        function multiplay(){
+          let str=Number(document.querySelector('.display').innerHTML);
+          console.log(typeof(str));
+          state.firstObj=str;
+        }
+        state.operations='*';
+        multiplay();
+        document.querySelector('.display').innerHTML+='*';
+      });
+      // division /
+      document.querySelector('p.arifBox:nth-child(4)').addEventListener('click',()=>{
+        function devision(){
+          let strTwo=Number(document.querySelector('.display').innerHTML);
+          console.log(typeof(strTwo));
+          state.firstObj=strTwo;
+        }
+        state.operations='/';
+        devision();
+        document.querySelector('.display').innerHTML+='/';
+    });
 
   //final fantasy! ^_^
-  document.querySelector('p.arifBox:nth-child(3)').addEventListener('click',()=>{
+  document.querySelector('p.arifBox:nth-child(5)').addEventListener('click',()=>{
     let oK=document.querySelector('.display').innerHTML;
     // console.log(oK);
     let s = oK;
@@ -195,8 +217,16 @@ const state={};//O_o
       let res = s.split('-').pop();
       console.log(res);
       state.twoObj=res;
-    }else{
+    }else if(state.operations=='+'){
       let res = s.split('+').pop();
+      console.log(res);
+      state.twoObj=res;
+    }else if(state.operations=='*'){
+      let res = s.split('*').pop();
+      console.log(res);
+      state.twoObj=res;
+    }else{
+      let res = s.split('/').pop();
       console.log(res);
       state.twoObj=res;
     }
@@ -208,6 +238,10 @@ if(state.operations=="+"){
   results=Number(state.firstObj) + Number(state.twoObj);
 }else if(state.operations=='-'){
   results=Number(state.firstObj) - Number(state.twoObj);
+}else if(state.operations=='*'){
+  results=Number(state.firstObj) * Number(state.twoObj);
+}else if(state.operations=='/'){
+  results=Number(state.firstObj) / Number(state.twoObj);
 }
 console.log('equal_'+results);
     return results;
