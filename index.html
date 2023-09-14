@@ -4,6 +4,78 @@
     <meta charset="utf-8">
     <title>test calculator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style media="screen">
+      *{
+        border:0;
+        padding:0;
+      }
+      body{
+        background:rgba(200,255,200);
+      }
+      main{
+        margin-left:auto;
+        margin-right:auto;
+        width:100%;
+        max-width:500px;
+      }
+      .calculator{
+        width:100%;
+        max-width:300px;
+
+      }
+      .click{
+        background:white;
+        width:100%;
+        max-width:50px;
+        min-width:50px;
+        height:30px;
+        text-align:center;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        border:1px solid black;
+        border-radius:17px;
+      }
+      .display{
+        display:block;
+        background:grey;
+        border: 1px solid black;
+          width:100%;
+          max-width:300px;
+          height:50px;
+      }
+      .boxNumber{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        max-width:250px;
+        width:100%;
+        flex-wrap:wrap;
+      }
+      .arifBox{
+        background:white;
+        width:100%;
+        max-width:70px;
+        min-width:70px;
+        height:50px;
+        text-align:center;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        border:1px solid black;
+        border-radius:17px;
+        margin-left:25px;
+      }
+      .buttons{
+        display:flex;
+        width:100%;
+        max-width:300px;
+      }
+      .operations{
+        display:flex;
+        flex-direction:column;
+      }
+    </style>
   </head>
   <body>
     <main>
@@ -13,7 +85,32 @@
         <li>Two step css</li>
         <li>Step three js</li>
       </ul>
+      <div class="calculator">
+        <span class='display'></span>
+        <div class="buttons">
+          <div class="boxNumber">
+            <p class='click'>1</p>
+            <p class='click'>2</p>
+            <p class='click'>3</p>
+            <p class='click'>4</p>
+            <p class='click'>5</p>
+            <p class='click'>6</p>
+            <p class='click'>7</p>
+            <p class='click'>8</p>
+            <p class='click'>9</p>
+            <p class='click'>0</p>
+          </div>
+          <div class="operations">
 
+            <p class='arifBox'>+</p>
+            <p class='arifBox'>-</p>
+            <p class='arifBox'>=</p>
+          </div>
+
+        </div>
+        <!-- <p class='click'>1</p> -->
+
+      </div>
     </main>
   </body>
 </html>
