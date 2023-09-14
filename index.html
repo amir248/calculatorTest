@@ -43,6 +43,7 @@
           width:100%;
           max-width:300px;
           height:50px;
+          font-size: 30px;
       }
       .boxNumber{
         display:flex;
@@ -113,4 +114,109 @@
       </div>
     </main>
   </body>
+  <script type="text/javascript">
+    function clear(){
+      if(state.clear==true){
+        document.querySelector('.display').innerHTML= '';
+        state.clear=false;
+      }
+    }
+    document.querySelector('p.click:nth-child(1)').addEventListener('click',()=>{
+      clear();
+      document.querySelector('.display').innerHTML+=1;
+    });
+    document.querySelector('p.click:nth-child(2)').addEventListener('click',()=>{
+      clear();
+      document.querySelector('.display').innerHTML+=2;
+    });
+    document.querySelector('p.click:nth-child(3)').addEventListener('click',()=>{
+      clear();
+      document.querySelector('.display').innerHTML+=3;
+    });
+    document.querySelector('p.click:nth-child(4)').addEventListener('click',()=>{
+      clear();
+      document.querySelector('.display').innerHTML+=4;
+    });
+    document.querySelector('p.click:nth-child(5)').addEventListener('click',()=>{
+      clear();
+      document.querySelector('.display').innerHTML+=5;
+    });
+    document.querySelector('p.click:nth-child(6)').addEventListener('click',()=>{
+      clear();
+      document.querySelector('.display').innerHTML+=6;
+    });
+    document.querySelector('p.click:nth-child(7)').addEventListener('click',()=>{
+      clear();
+      document.querySelector('.display').innerHTML+=7;
+    });
+    document.querySelector('p.click:nth-child(8)').addEventListener('click',()=>{
+      clear();
+      document.querySelector('.display').innerHTML+=8;
+    });
+      document.querySelector('p.click:nth-child(9)').addEventListener('click',()=>{
+        clear();
+        document.querySelector('.display').innerHTML+=9;
+      });
+      document.querySelector('p.click:nth-child(10)').addEventListener('click',()=>{
+        clear();
+        document.querySelector('.display').innerHTML+=0;
+    });
+const state={};//O_o
+// PLUS +
+    document.querySelector('p.arifBox:nth-child(1)').addEventListener('click',()=>{
+      function plus(){
+        let str=Number(document.querySelector('.display').innerHTML);
+        console.log(typeof(str));
+        state.firstObj=str;
+      }
+      state.operations='+';
+      plus();
+      document.querySelector('.display').innerHTML+=`+`;
+    });
+    // MIMUS -
+    document.querySelector('p.arifBox:nth-child(2)').addEventListener('click',()=>{
+      function minus(){
+        let strTwo=Number(document.querySelector('.display').innerHTML);
+        console.log(typeof(strTwo));
+        state.firstObj=strTwo;
+      }
+      state.operations='-';
+      minus();
+      document.querySelector('.display').innerHTML+='-';
+  });
+
+
+  //final fantasy! ^_^
+  document.querySelector('p.arifBox:nth-child(3)').addEventListener('click',()=>{
+    let oK=document.querySelector('.display').innerHTML;
+    // console.log(oK);
+    let s = oK;
+    if(state.operations=='-'){
+      let res = s.split('-').pop();
+      console.log(res);
+      state.twoObj=res;
+    }else{
+      let res = s.split('+').pop();
+      console.log(res);
+      state.twoObj=res;
+    }
+    console.log(state.twoObj);
+
+    function equals(){
+// return Number(result);
+if(state.operations=="+"){
+  results=Number(state.firstObj) + Number(state.twoObj);
+}else if(state.operations=='-'){
+  results=Number(state.firstObj) - Number(state.twoObj);
+}
+console.log('equal_'+results);
+    return results;
+    }
+
+    equals();
+    // console.log(equals());
+    document.querySelector('.display').innerHTML+='='+equals();
+    state.clear=true;
+  });
+  </script>
 </html>
